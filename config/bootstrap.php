@@ -2,7 +2,7 @@
 
 
 # Setup Applictation Directory Structure
-define("APP_DOC_ROOT", "/framework-bootstrap");
+define("APP_DOC_ROOT", "/socialap");
 define("APP_DIR_ROOT", dirname ( dirname ( __FILE__ ) ) );
 
 # These should be fine as is
