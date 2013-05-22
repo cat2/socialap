@@ -16,22 +16,18 @@ function processAuth( $user, $pass) {
   // Check if user exists
 	$userArray = array_keys( $userList );
 	if ( in_array( $user, $userArray ) ) {
-		$auth["return"] = true;
-
 
 		// Check if password is valid
-
 		if ( $pass == $userList[$user] ) {
-		$auth["return"] = true;
+			$auth["return"] = true;
 		}
 		else {
 			$auth["message"] = "Password is not correct!";
 		}
 	}
-else {
-	$auth["message"] = "User does not exist!";
-}
-
+	else {
+		$auth["message"] = "User does not exist!";
+	}
 
 	return ( $auth );
 

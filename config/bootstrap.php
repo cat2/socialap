@@ -17,7 +17,7 @@ define("APP_IMG",        APP_DOC_ROOT . "/img");
 define("DEBUG", 0);
 
 # Set PHP Error Output
-ini_set('error_reporting','E_ALL');
+//ini_set('error_reporting','E_ALL');
 
 
 # Database Configuration
