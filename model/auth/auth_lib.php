@@ -1,49 +1,34 @@
 <?php
 
-function processAuth( $user, $pass) {
+function processAuth( $user, $pass ) {
 
+    $auth = array();
+    $auth["return"]  = false;
+    $auth["message"] = "";
 
+    $sql = "SELECT *
+            FROM auth_user
+            WHERE username = '$user'";
 
-	$auth = array();
-	$auth["return"] = false;
-	$auth["message"] = "";
+    $res = mysql_query( $sql );
+    $row = mysql_fetch_array( $res );
 
+    // Check if user exisits
+    if ( $row ) {
 
-	$sql = "SELECT *
-	        FROM auth_user
-	        WHERE username = '$user'";
+        //Check if password is valid
+        if ( $row["password"] == md5($pass) ) {
+            $auth["return"]  = true;
+        }
+        else {
+            $auth["message"] = "Password is not correct!";
+        }
 
+    }
+    else {
+        $auth["message"] = "User does not exist!";
+    }
 
-	$res = mysql_query( $sql );
-
-	$row = mysql_fetch_array( $res );
-
-
-
-
-
-
-
-  // Check if user exists
-	if ( $row )  {
-
-		// Check if password is valid
-		if ( $row["password"] ==  md5($pass) ) {
-			$auth["return"] = true;
-		}
-
-
-
-		else {
-			$auth["message"] = "Password is not correct!";
-
-	         }
-
-	    }
-	else {
-		$auth["message"] = "User does not exist!";
-	}
-
-	return ( $auth );
+    return( $auth );
 
 }

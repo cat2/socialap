@@ -1,12 +1,12 @@
 <?php
 
+
 switch ( $_GET["a"] ) {
 
     case "login":
-
         include(APP_VIEW . "/header.php");
         include(APP_VIEW . "/nav.php");
-        include( APP_VIEW ."/auth/loginView.php" );
+        include(APP_VIEW . "/auth/loginView.php" );
         include(APP_VIEW . "/footer.php");
         break;
 
@@ -19,10 +19,9 @@ switch ( $_GET["a"] ) {
 
         include(APP_VIEW . "/header.php");
         include(APP_VIEW . "/nav.php");
-        include( APP_VIEW ."/auth/loginView.php" );
+        include(APP_VIEW . "/auth/loginView.php" );
         include(APP_VIEW . "/footer.php");
         break;
-
 
     case "process":
 
@@ -33,13 +32,15 @@ switch ( $_GET["a"] ) {
             # Setup Session
             $_SESSION["username"] = $_POST["username"];
 
-        	header("Location: http://localhost" . APP_DOC_ROOT );
+            # Redirect to App home page
+            header("Location: http://localhost" . APP_DOC_ROOT );
         }
         else {
-    	    include(APP_VIEW . "/header.php");
+            include(APP_VIEW . "/header.php");
             include(APP_VIEW . "/nav.php");
-            include( APP_VIEW ."/auth/loginView.php" );
+            include(APP_VIEW . "/auth/loginView.php" );
             include(APP_VIEW . "/footer.php");
         }
+
         break;
 }

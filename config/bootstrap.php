@@ -22,15 +22,13 @@ define("DEBUG", 0);
 
 # Database Configuration
 
-
 $dbHost = "localhost";
 $dbName = "socialap";
 $dbUser = "appuser";
 $dbPass = "agogo123";
 
 $dbh = mysql_pconnect($dbHost, $dbUser, $dbPass)
-	or die("Could not connect to Mysql . mysql_error()");
+        or die("Could not connect to Mysql" . mysql_error());
 
 mysql_select_db($dbName, $dbh)
-	or die("Could not open database" . mysql_error() );
-
+        or die("Could not open database" . mysql_error() );
